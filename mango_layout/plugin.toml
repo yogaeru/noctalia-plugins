@@ -1,0 +1,44 @@
+id           = "yogaeru/mango_layout"
+name         = "Mango Layout"
+version      = "1.0.0"
+min_noctalia = "5.0.0"
+author       = "yogaeru"
+license      = "MIT"
+icon         = "layout-filled"
+description  = "Layout switcher for MangoWC"
+
+# Settings
+[[setting]]
+key     = "compactLabel"
+type    = "boolean"
+label   = "Compact Label"
+description = "Display compact layout name in panel"
+default = false
+
+[[setting]]
+key     = "closeOnSelect"
+type    = "boolean"
+label   = "Close on Select"
+description = "Close panel when select layout"
+default = false
+
+# # ─── Bar widget ─────────────────────────────────────────────────────────────
+[[widget]]
+id    = "picker"
+entry = "widget.luau"
+
+  [[widget.setting]]
+  key     = "icon"
+  type    = "glyph"
+  label   = "Icon widget"
+  default = "layout-filled"
+
+# ─── Panel ──────────────────────────────────────────────────────────────────
+[[panel]]
+id              = "main"
+entry           = "panel.luau"
+width           = 350
+height          = 450
+placement       = "floating"
+position        = "center"
+open_near_click = true
