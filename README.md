@@ -6,4 +6,4 @@ A collection of my personal [Noctalia V5](https://noctalia.dev) plugins.
 
 | Plugin | Description |
 | --- | --- |
-| [`mango-layout`](mango-layout) | Bar widget for switching Mango window manager layouts. |
+| [`mango-layout`](mango_layout) | Bar widget for switching Mango window manager layouts. |
