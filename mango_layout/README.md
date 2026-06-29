@@ -2,6 +2,8 @@
 
 A Noctalia bar widget that opens a panel for switching [Mango](https://github.com/mangowm/mango) window manager layouts.
 
+![preview](preview.webp)
+
 ## Requirements
 
 - [`mango`](https://github.com/mangowm/mango) — window manager
