@@ -1,0 +1,12 @@
+[[plugin]]
+id           = "yogaeru/mango_layout"
+name         = "Mango Layout"
+author       = "yogaeru"
+version      = "1.0.0"
+min_noctalia = "5.0.0"
+license      = "MIT"
+icon         = "layout-filled"
+description  = "Bar widget for switching Mango window manager layouts."
+deprecated   = false
+tags         = ["mango", "layout", "wm"]
+dependencies = ["jq"]
