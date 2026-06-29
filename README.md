@@ -24,7 +24,7 @@ noctalia msg plugins source add yogaeru git https://github.com/yogaeru/noctalia-
 noctalia msg plugins list
 
 # Enable a plugin
-noctalia msg plugins enable yogaeru/mango-layout
+noctalia msg plugins enable yogaeru/mango_layout
 ```
 
 ## Plugins List
