@@ -7,7 +7,7 @@ license      = "MIT"
 icon         = "layout-filled"
 description  = "Layout switcher for MangoWC"
 
-# Settings
+# # ─── Settings ─────────────────────────────────────────────────────────────
 [[setting]]
 key     = "compactLabel"
 type    = "boolean"
@@ -27,11 +27,21 @@ default = false
 id    = "picker"
 entry = "widget.luau"
 
-  [[widget.setting]]
-  key     = "icon"
-  type    = "glyph"
-  label   = "Icon widget"
-  default = "layout-filled"
+[[widget.setting]]
+key         = "icon"
+type        = "glyph"
+label       = "Icon widget"
+description = "Icon to display in bar widget"
+visible_when = { key = "dynamicIcon", values = ["false"]}
+default     = "layout-filled"
+
+[[widget.setting]]
+key         = "dynamicIcon"
+type        = "boolean"
+label       = "Icon Follow Layout"
+description = "Change widget icon based on active layout"
+default     = false
+
 
 # ─── Panel ──────────────────────────────────────────────────────────────────
 [[panel]]
