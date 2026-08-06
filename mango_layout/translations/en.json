@@ -1,0 +1,10 @@
+{
+  "settings.closeOnSelect.label": "Close on Select",
+  "settings.closeOnSelect.description": "Close the panel after selecting a layout.",
+  "settings.compactLabel.label": "Compact Label",
+  "settings.compactLabel.description": "Show the short symbol instead of the full layout name.",
+  "settings.dynamicIcon.label": "Layout Icon",
+  "settings.dynamicIcon.description": "Change the bar icon to match the active layout.",
+  "settings.icon.label": "Icon",
+  "settings.icon.description": "Icon shown in the bar when Layout Icon is disabled."
+}
