@@ -1,44 +1,51 @@
 id           = "yogaeru/mango_layout"
-name         = "Mango Layout"
-version      = "1.0.0"
+name         = "Mango Layout Switcher"
+version      = "1.0.1"
 min_noctalia = "5.0.0"
 author       = "yogaeru"
 license      = "MIT"
+plugin_api   = 14
 icon         = "layout-filled"
 description  = "Layout switcher for MangoWC"
 
-# Settings
-[[setting]]
-key     = "compactLabel"
-type    = "boolean"
-label   = "Compact Label"
-description = "Display compact layout name in panel"
-default = false
 
 [[setting]]
-key     = "closeOnSelect"
-type    = "boolean"
-label   = "Close on Select"
-description = "Close panel when select layout"
-default = false
+key             = "closeOnSelect"
+type            = "bool"
+label_key       = "settings.closeOnSelect.label"
+description_key = "settings.closeOnSelect.description"
+default         = false
 
-# # ─── Bar widget ─────────────────────────────────────────────────────────────
+[[setting]]
+key             = "compactLabel"
+type            = "bool"
+label_key       = "settings.compactLabel.label"
+description_key = "settings.compactLabel.description"
+default         = false
+
 [[widget]]
-id    = "picker"
+id = "mango_layout"
 entry = "widget.luau"
 
   [[widget.setting]]
-  key     = "icon"
-  type    = "glyph"
-  label   = "Icon widget"
-  default = "layout-filled"
+  key             = "dynamicIcon"
+  type            = "bool"
+  label_key       = "settings.dynamicIcon.label"
+  description_key = "settings.dynamicIcon.description"
+  default         = false
+  
+  [[widget.setting]]
+  key             = "icon"
+  type            = "glyph"
+  label_key       = "settings.icon.label"
+  description_key = "settings.icon.description"
+  default         = "layout-filled"
+  visible_when    = { key = "dynamicIcon", values = ["false"] }
 
-# ─── Panel ──────────────────────────────────────────────────────────────────
 [[panel]]
-id              = "main"
-entry           = "panel.luau"
-width           = 350
-height          = 450
-placement       = "floating"
-position        = "center"
-open_near_click = true
+id = "main"
+entry = "panel.luau"
+width = 420
+height = 410
+placement = "floating"
+position = "center"

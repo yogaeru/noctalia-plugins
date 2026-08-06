@@ -1,8 +1,7 @@
-local icon = barWidget.getConfig("icon")
 
 function update()
   noctalia.setUpdateInterval(0)
-  barWidget.setGlyph(icon)
+  barWidget.setGlyph("layout-filled")
   barWidget.setTooltip("Mango Layout")
 end
 
