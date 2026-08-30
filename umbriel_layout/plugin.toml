@@ -27,7 +27,6 @@ entry = "widget.luau"
   label_key = "settings.icon.label"
   description_key = "settings.icon.description"
   default = "layout-filled"
-  visible_when = { key = "dynamic_icon", values = ["false"] }
 
 
 # Panel -----------------------
