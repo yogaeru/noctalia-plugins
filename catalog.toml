@@ -1,13 +1,24 @@
 [[plugin]]
-id           = "yogaeru/mango_layout"
-name         = "Mango Layout Switcher"
-author       = "yogaeru"
-version      = "1.0.1"
-min_noctalia = "5.0.0"
-license      = "MIT"
-icon         = "layout-filled"
-description  = "Bar widget for switching Mango window manager layouts."
-deprecated   = false
-plugin_api   = 14
-tags         = ["mango", "layout", "wm"]
+id = "yogaeru/mango_layout"
+name = "Mango Layout Switcher"
+author = "yogaeru"
+version = "1.0.1"
+license = "MIT"
+icon = "layout-filled"
+description = "Bar widget for switching Mango window manager layouts."
+deprecated = false
+plugin_api = 14
+tags = ["mango", "layout", "wm"]
 dependencies = ["jq"]
+
+[[plugin]]
+id = "yogaeru/umbriel_layout"
+name = "Umbriel Layout Switcher"
+author = "yogaeru"
+version = "1.0.0"
+license = "MIT"
+icon = "layout-filled"
+description = "Bar widget for switching Umbriel window manager layouts."
+deprecated = false
+plugin_api = 28
+tags = ["layout", "wm"]
