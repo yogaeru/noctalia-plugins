@@ -35,3 +35,6 @@ id = "panel"
 entry = "panel.luau"
 width = 300
 height = 100
+placemenet = "floating"
+keyboard_focus = "exclusive"
+capture_keys = ["1", "2", "3", "left", "right", "h", "l", "return"]

@@ -13,7 +13,15 @@ local layouts = {
 	},
 }
 
+local layoutList = {
+	"scrolling",
+	"dwindle",
+	"master",
+}
+
 local closeOnSelect = noctalia.getConfig("close_on_select")
+
+local focus = -1
 local activeLayout
 local COLUMNS = 3
 local GAP = 4
@@ -53,29 +61,33 @@ end
 function buildButtons()
 	local buttons = {}
 
-	for key, value in pairs(layouts) do
-		local selected = (activeLayout == key)
-		-- Create a button and insert it into the buttons table
+	for index, value in ipairs(layoutList) do
+		local layout = layouts[value]
+		local selected = (activeLayout == value)
+		if selected and focus == -1 then
+			focus = index - 1
+		end
+
 		table.insert(
 			buttons,
 			ui.column({
-				-- gap = GAP,
 				align = "center",
 				flexGrow = 1,
 			}, {
 				-- Icon button
 				ui.button({
-					glyphSize = 28,
-					glyph = value.icon,
+					glyphSize = 32,
+					glyph = layout.icon,
 					variant = selected and "primary" or "ghost",
 					onClick = function()
-						changeLayout(key)
+						switchLayout(value)
 					end,
+					selected = focus == index - 1,
 				}),
 
 				-- Label button
 				ui.label({
-					text = value.label,
+					text = layout.label,
 					fontSize = 12,
 					fontWeight = "bold",
 					textAlign = "center",
@@ -86,6 +98,7 @@ function buildButtons()
 			})
 		)
 	end
+
 	return buttons
 end
 
@@ -123,9 +136,50 @@ local function render()
 	panel.render(ui.column({
 		flexGrow = 1,
 		justify = "center",
+		-- border = "outline",
 	}, {
 		makeGrid(buildButtons()),
 	}))
+end
+
+-- Changing layout
+function switchLayout(layout: string)
+	-- noctalia.notify("Change Layout", layout)
+
+	noctalia.runAsync(string.format("umbriel msg workspace-set-layout:%s", layout))
+	activeLayout = layout
+
+	if closeOnSelect then
+		panel.close()
+	else
+		focus = -1
+		render()
+	end
+end
+
+function onKey(chord, pressed)
+	if not pressed then
+		return
+	end
+
+	if chord == "1" then
+		switchLayout(layoutList[1])
+	elseif chord == "2" then
+		switchLayout(layoutList[2])
+	elseif chord == "3" then
+		switchLayout(layoutList[3])
+	elseif chord == "left" or chord == "h" then
+		focus = (focus - 1) % #layoutList
+		render()
+	elseif chord == "right" or chord == "l" then
+		focus = (focus + 1) % #layoutList
+		render()
+	elseif chord == "return" then
+		local layoutSelected = layoutList[focus + 1]
+		if layoutSelected ~= activeLayout then
+			switchLayout(layoutSelected)
+		end
+	end
 end
 
 function onOpen()
@@ -134,18 +188,8 @@ function onOpen()
 		-- noctalia.notify("Workspace", activeLayout)
 		render()
 	end)
-
-	render()
 end
 
--- Changing layout
-function changeLayout(layout: string)
-	-- noctalia.notify("Change Layout", layout)
-	noctalia.runAsync(string.format("umbriel msg workspace-set-layout:%s", layout))
-	activeLayout = layout
-	if closeOnSelect then
-		panel.close()
-	else
-		render()
-	end
+function onClose()
+	focus = -1
 end
