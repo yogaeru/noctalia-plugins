@@ -31,4 +31,5 @@ noctalia msg plugins enable yogaeru/mango_layout
 
 | Plugin                         | Description                                            |
 | ------------------------------ | ------------------------------------------------------ |
-| [`mango-layout`](mango_layout) | Bar widget for switching Mango window manager layouts. |
+| [`mango_layout`](mango_layout) | Bar widget for switching Mango window manager layouts. |
+| [`umbriel_layout`](umbriel_layout) | Bar widget for switching Umbriel window manager layouts. |
