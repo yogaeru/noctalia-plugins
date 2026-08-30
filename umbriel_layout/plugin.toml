@@ -1,0 +1,38 @@
+id = "yogaeru/umbriel_layout"
+name = "Umbriel Layout Switcher"
+version = "1.0.0"
+author = "yogaeru"
+license = "MIT"
+plugin_api = 28
+icon = "layout-filled"
+description = "Layout switcher for Umbriel window manager."
+
+
+# # Settings --------------------
+[[setting]]
+key = "close_on_select"
+type = "bool"
+label_key = "settings.close_on_select.label"
+description_key = "settings.close_on_select.description"
+default = false
+
+# Widget ----------------------
+[[widget]]
+id = "widget"
+entry = "widget.luau"
+
+  [[widget.setting]]
+  key = "icon"
+  type = "glyph"
+  label_key = "settings.icon.label"
+  description_key = "settings.icon.description"
+  default = "layout-filled"
+  visible_when = { key = "dynamic_icon", values = ["false"] }
+
+
+# Panel -----------------------
+[[panel]]
+id = "panel"
+entry = "panel.luau"
+width = 300
+height = 100

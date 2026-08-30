@@ -1,0 +1,20 @@
+{
+  "settings": {
+    "close_on_select": {
+      "label": "Close After Selection",
+      "description": "Automatically close the layout picker after selecting a layout."
+    },
+    "compact_label": {
+      "label": "Use Compact Labels",
+      "description": "Display layout symbols instead of full layout names."
+    },
+    "dynamic_icon": {
+      "label": "Follow Active Layout",
+      "description": "Automatically update the widget icon to match the active MangoWM layout."
+    },
+    "icon": {
+      "label": "Default Icon",
+      "description": "Icon displayed when Follow Active Layout is disabled."
+    }
+  }
+}
