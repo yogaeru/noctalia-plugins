@@ -102,36 +102,6 @@ function buildButtons()
 	return buttons
 end
 
--- Parse workspaces from the output of the workspace command
-local function parseWorkspaces(text)
-	local results = {}
-
-	for line in text:gmatch("[^\n]+") do
-		local marker, output, ws, layout = line:match("^(%*?)%s*(%S+):%s*(%S+)%s*%[(%a+)%]")
-		if output then
-			local focused = (marker == "*") or (line:find("%(focused%)") ~= nil)
-			table.insert(results, {
-				output = output,
-				workspace = ws,
-				layout = layout,
-				focused = focused,
-			})
-		end
-	end
-
-	return results
-end
-
--- Get the focused layout from the parsed workspaces
-local function getFocusedLayout(text)
-	for _, item in ipairs(parseWorkspaces(text)) do
-		if item.focused then
-			return item.layout, item.output, item.workspace
-		end
-	end
-	return nil
-end
-
 local function render()
 	panel.render(ui.column({
 		flexGrow = 1,
@@ -183,8 +153,8 @@ function onKey(chord, pressed)
 end
 
 function onOpen()
-	noctalia.runAsync("umbriel workspaces", function(result: CommandResult)
-		activeLayout = getFocusedLayout(result.stdout)
+	noctalia.runAsync("umbriel workspaces | grep 'focused'", function(result: CommandResult)
+		activeLayout = string.split(result.stdout, " ")[4]:gsub("[%[%]]", "")
 		-- noctalia.notify("Workspace", activeLayout)
 		render()
 	end)
