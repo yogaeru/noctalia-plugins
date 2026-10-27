@@ -11,19 +11,24 @@ local layouts = {
 		label = "Dwindle",
 		icon = "layout-2",
 	},
+	floating = {
+		label = "Floating",
+		icon = "layout-navbar-filled",
+	}
 }
 
 local layoutList = {
 	"scrolling",
 	"dwindle",
 	"master",
+	"floating",
 }
 
 local closeOnSelect = noctalia.getConfig("close_on_select")
 
 local focus = -1
 local activeLayout
-local COLUMNS = 3
+local COLUMNS = 4
 local GAP = 4
 
 -- Make a grid from created buttons

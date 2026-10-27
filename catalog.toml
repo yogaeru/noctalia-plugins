@@ -22,3 +22,14 @@ description = "Bar widget for switching Umbriel window manager layouts."
 deprecated = false
 plugin_api = 28
 tags = ["layout", "wm"]
+
+
+[[plugin]]
+id = "yogaeru/umbriel_settings"
+name = "Umbriel Settings"
+version = "0.0.1"
+author = "yogaeru"
+license = "MIT"
+plugin_api = 30
+icon = "layout-filled"
+description = "A GUI Settings for Umbriel."
